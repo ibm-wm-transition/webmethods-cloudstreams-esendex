@@ -1,5 +1,11 @@
 # webMethods CloudStreams Provider for Esendex
 This project provides a sample webMethods CloudStreams Provider Project for Esendex. The following APIs are available:
+* **Send SMS:** The Message Dispatcher resource can be used to send one or more SMS messages. These can be sent either straight away or scheduled for the future. https://developers.esendex.com/api-reference#messagedispatcher
+* **Message Information:** The Message Information resource can be used to obtain information for one or more messages to help understand the costs involved in sending those messages. https://developers.esendex.com/api-reference#messageinformation
+* **Accounts:** This operation will return a response containing summary information on all of the Esendex accounts that the user has permissions to use. https://developers.esendex.com/api-reference#accounts
+* **Message Batch:** The Message Batch resource can be used to query the batches of messages which have been sent from an Esendex account. A common use of the message batch resource is to retrieve a summary of the status codes for the messages in a batch which indicates the delivery progress. Any message batches scheduled to be sent in the future can also be cancelled. https://developers.esendex.com/api-reference#messagebatch
+* **Message Header:** The Message Header resource can be used to query messages which have been sent from an Esendex account. It also allows individual messages to be queried for more details. https://developers.esendex.com/api-reference#messageheader
+* **Send Voicemessage:** Esendex's REST API supports the ability to send voice messages. https://developers.esendex.com/api-reference#sendvoicemessage
 
 ## Requirements
 
