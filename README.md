@@ -36,7 +36,7 @@ The CloudStreams Provider Project does not contain neccessary doctypes.
 2. Open Integration Server Administration in your browser.
 3. Install both packages with ```Install Inbound Releases``` in Package Management.
 
-### Add Esendes Username and Password and activate connections
+### Add Esendex Username and Password and activate connections
 
 To access Esendex a username and password is neccessary. Generate your Esendex Trial account here: https://developers.esendex.com/.
 
