@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<IDataXMLCoder version="1.0">
+  <record javaclass="com.wm.util.Values">
+    <value name="interface">wmesendex.doc</value>
+    <value name="package">esendex</value>
+    <array name="nodeList" type="record" depth="1">
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="node_nsName">wmesendex.doc:SendSMSResponse</value>
+        <number name="LOCK_STATUS" type="java.lang.Integer">3</number>
+        <value name="node_pkg">esendex</value>
+        <idataportable name="node_type" javaclass="com.wm.lang.ns.NSType">
+          <value name="type_name">record</value>
+          <value name="subtype_name">unknown</value>
+        </idataportable>
+        <null name="eventDescription"/>
+        <jboolean name="field_is_xml_content">false</jboolean>
+        <number name="role" type="java.lang.Byte">0</number>
+        <jboolean name="NotificationDocument">false</jboolean>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="node_nsName">wmesendex.doc:MessageInformationResponse</value>
+        <number name="LOCK_STATUS" type="java.lang.Integer">3</number>
+        <value name="node_pkg">esendex</value>
+        <idataportable name="node_type" javaclass="com.wm.lang.ns.NSType">
+          <value name="type_name">record</value>
+          <value name="subtype_name">unknown</value>
+        </idataportable>
+        <null name="eventDescription"/>
+        <jboolean name="field_is_xml_content">false</jboolean>
+        <number name="role" type="java.lang.Byte">0</number>
+        <jboolean name="NotificationDocument">false</jboolean>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="node_nsName">wmesendex.doc:SendVoicemessageRequest</value>
+        <number name="LOCK_STATUS" type="java.lang.Integer">3</number>
+        <value name="node_pkg">esendex</value>
+        <idataportable name="node_type" javaclass="com.wm.lang.ns.NSType">
+          <value name="type_name">record</value>
+          <value name="subtype_name">unknown</value>
+        </idataportable>
+        <null name="eventDescription"/>
+        <jboolean name="field_is_xml_content">false</jboolean>
+        <number name="role" type="java.lang.Byte">0</number>
+        <jboolean name="NotificationDocument">false</jboolean>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="node_nsName">wmesendex.doc:SendVoicemessageResponse</value>
+        <number name="LOCK_STATUS" type="java.lang.Integer">3</number>
+        <value name="node_pkg">esendex</value>
+        <idataportable name="node_type" javaclass="com.wm.lang.ns.NSType">
+          <value name="type_name">record</value>
+          <value name="subtype_name">unknown</value>
+        </idataportable>
+        <null name="eventDescription"/>
+        <jboolean name="field_is_xml_content">false</jboolean>
+        <number name="role" type="java.lang.Byte">0</number>
+        <jboolean name="NotificationDocument">false</jboolean>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="node_nsName">wmesendex.doc:AccountResponse</value>
+        <number name="LOCK_STATUS" type="java.lang.Integer">3</number>
+        <value name="node_pkg">esendex</value>
+        <idataportable name="node_type" javaclass="com.wm.lang.ns.NSType">
+          <value name="type_name">record</value>
+          <value name="subtype_name">unknown</value>
+        </idataportable>
+        <null name="eventDescription"/>
+        <jboolean name="field_is_xml_content">false</jboolean>
+        <number name="role" type="java.lang.Byte">0</number>
+        <jboolean name="NotificationDocument">false</jboolean>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="node_nsName">wmesendex.doc:SendSMSRequest</value>
+        <number name="LOCK_STATUS" type="java.lang.Integer">3</number>
+        <value name="node_pkg">esendex</value>
+        <idataportable name="node_type" javaclass="com.wm.lang.ns.NSType">
+          <value name="type_name">record</value>
+          <value name="subtype_name">unknown</value>
+        </idataportable>
+        <null name="eventDescription"/>
+        <jboolean name="field_is_xml_content">false</jboolean>
+        <number name="role" type="java.lang.Byte">0</number>
+        <jboolean name="NotificationDocument">false</jboolean>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="node_nsName">wmesendex.doc:MessageHeaderContent</value>
+        <number name="LOCK_STATUS" type="java.lang.Integer">3</number>
+        <value name="node_pkg">esendex</value>
+        <idataportable name="node_type" javaclass="com.wm.lang.ns.NSType">
+          <value name="type_name">record</value>
+          <value name="subtype_name">unknown</value>
+        </idataportable>
+        <null name="eventDescription"/>
+        <jboolean name="field_is_xml_content">false</jboolean>
+        <number name="role" type="java.lang.Byte">0</number>
+        <jboolean name="NotificationDocument">false</jboolean>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="node_nsName">wmesendex.doc:MessageInformationRequest</value>
+        <number name="LOCK_STATUS" type="java.lang.Integer">3</number>
+        <value name="node_pkg">esendex</value>
+        <idataportable name="node_type" javaclass="com.wm.lang.ns.NSType">
+          <value name="type_name">record</value>
+          <value name="subtype_name">unknown</value>
+        </idataportable>
+        <null name="eventDescription"/>
+        <jboolean name="field_is_xml_content">false</jboolean>
+        <number name="role" type="java.lang.Byte">0</number>
+        <jboolean name="NotificationDocument">false</jboolean>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="node_nsName">wmesendex.doc:MessageBatch</value>
+        <number name="LOCK_STATUS" type="java.lang.Integer">3</number>
+        <value name="node_pkg">esendex</value>
+        <idataportable name="node_type" javaclass="com.wm.lang.ns.NSType">
+          <value name="type_name">record</value>
+          <value name="subtype_name">unknown</value>
+        </idataportable>
+        <null name="eventDescription"/>
+        <jboolean name="field_is_xml_content">false</jboolean>
+        <number name="role" type="java.lang.Byte">0</number>
+        <jboolean name="NotificationDocument">false</jboolean>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="node_nsName">wmesendex.doc:MessageHeader</value>
+        <number name="LOCK_STATUS" type="java.lang.Integer">3</number>
+        <value name="node_pkg">esendex</value>
+        <idataportable name="node_type" javaclass="com.wm.lang.ns.NSType">
+          <value name="type_name">record</value>
+          <value name="subtype_name">unknown</value>
+        </idataportable>
+        <null name="eventDescription"/>
+        <jboolean name="field_is_xml_content">false</jboolean>
+        <number name="role" type="java.lang.Byte">0</number>
+        <jboolean name="NotificationDocument">false</jboolean>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="node_nsName">wmesendex.doc:MessageHeaders</value>
+        <number name="LOCK_STATUS" type="java.lang.Integer">3</number>
+        <value name="node_pkg">esendex</value>
+        <idataportable name="node_type" javaclass="com.wm.lang.ns.NSType">
+          <value name="type_name">record</value>
+          <value name="subtype_name">unknown</value>
+        </idataportable>
+        <null name="eventDescription"/>
+        <jboolean name="field_is_xml_content">false</jboolean>
+        <number name="role" type="java.lang.Byte">0</number>
+        <jboolean name="NotificationDocument">false</jboolean>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="node_nsName">wmesendex.doc:MessageBatchContent</value>
+        <number name="LOCK_STATUS" type="java.lang.Integer">3</number>
+        <value name="node_pkg">esendex</value>
+        <idataportable name="node_type" javaclass="com.wm.lang.ns.NSType">
+          <value name="type_name">record</value>
+          <value name="subtype_name">unknown</value>
+        </idataportable>
+        <null name="eventDescription"/>
+        <jboolean name="field_is_xml_content">false</jboolean>
+        <number name="role" type="java.lang.Byte">0</number>
+        <jboolean name="NotificationDocument">false</jboolean>
+      </record>
+      <record javaclass="com.wm.data.ISMemDataImpl">
+        <value name="node_nsName">wmesendex.doc:MessageBatches</value>
+        <number name="LOCK_STATUS" type="java.lang.Integer">3</number>
+        <value name="node_pkg">esendex</value>
+        <idataportable name="node_type" javaclass="com.wm.lang.ns.NSType">
+          <value name="type_name">record</value>
+          <value name="subtype_name">unknown</value>
+        </idataportable>
+        <null name="eventDescription"/>
+        <jboolean name="field_is_xml_content">false</jboolean>
+        <number name="role" type="java.lang.Byte">0</number>
+        <jboolean name="NotificationDocument">false</jboolean>
+      </record>
+    </array>
+  </record>
+</IDataXMLCoder>

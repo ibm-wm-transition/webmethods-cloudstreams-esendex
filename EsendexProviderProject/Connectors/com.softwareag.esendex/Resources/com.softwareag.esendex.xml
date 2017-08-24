@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<rest-connector xmlns="http://www.softwareag.com/cloudstreams/metadata/handler/model" id="com.softwareag.esendex" version="0.1" group="esendex" name="com.softwareag.esendex" displayName="com.softwareag.esendex">
+    <description></description>
+    <connections>
+        <connection type="sagcloud" name="Connection1" displayName="Connection1">
+            <groups>
+                <group type="connection" name="connection" displayName="connection">
+                    <description>Define the required connection configurations to initiate communication with the SaaS provider.</description>
+                    <fields>
+                        <field defaultValue="https://api.esendex.com/v1.0" name="cn.providerUrl" displayName="Server URL"/>
+                        <field defaultValue="30000" name="cn.connectTimeout" displayName="Connection TimeOut"/>
+                        <field defaultValue="30000" name="cn.readTimeout" displayName="Socket Read Timeout"/>
+                        <field defaultValue="false" name="cn.socketStaleCheck" displayName="Use Stale Checking"/>
+                        <field defaultValue="1" name="cn.retryCount" displayName="Connection Retry Count"/>
+                        <field defaultValue="false" name="cn.retryIfRequestSentOk" displayName="Retry on Response Failure"/>
+                        <field defaultValue="false" name="cn.tcpNoDelay" displayName="Use TCP NoDelay"/>
+                        <field defaultValue="-1" name="cn.socketLinger" displayName="Socket Linger"/>
+                        <field defaultValue="8192" name="cn.sockBuffSize" displayName="Socket Buffer Size"/>
+                        <field defaultValue="false" name="cn.reuseAddr" displayName="Socket Reuse Address"/>
+                        <field defaultValue="org.apache.http.conn.ssl.StrictHostnameVerifier" name="cn.hostnameVerifier" displayName="Hostname verifier"/>
+                    </fields>
+                </group>
+                <group type="credentials" name="credentials" displayName="Credentials">
+                    <description>Define configurations needed for the username and password based authentication to the SaaS provider.</description>
+                    <fields>
+                        <field defaultValue="basic" name="cr.authSchemeType" displayName="Authorization Type"/>
+                        <field defaultValue="true" name="cr.preemptiveAuthEnabled" displayName="Preemptive Auth"/>
+                    </fields>
+                </group>
+                <group type="requestHeaders" name="requestHeaders" displayName="Request Headers">
+                    <description>Define the HTTP request header contents that will be used while making a request to a SaaS provider.</description>
+                    <fields>
+                        <field defaultValue="Accept,Content-Type" name="rh.requestHeaderNames" displayName="Request Header Names"/>
+                        <field defaultValue="application/json,application/json" name="rh.requestHeaderValues" displayName="Request Header Values"/>
+                    </fields>
+                </group>
+                <group type="protocol" name="protocol" displayName="Protocol">
+                    <description>Define configurations needed for the HTTP protocol that the connection will use to connect to the SaaS provider.</description>
+                    <fields>
+                        <field defaultValue="US-ASCII" name="pr.httpElementCharSet" displayName="Element Character Set"/>
+                        <field defaultValue="ISO-8859-1" name="pr.httpContentCharSet" displayName="HTTP Content Character Set"/>
+                        <field defaultValue="HTTP/1.1" name="pr.protocolVersion" displayName="HTTP Protocol Version"/>
+                        <field defaultValue="Cloudstreams" name="pr.userAgent" displayName="User Agent"/>
+                        <field defaultValue="false" name="pr.useExpectCont" displayName="Use Expect Continue"/>
+                        <field defaultValue="3000" name="pr.waitForCont" displayName="Wait For Continue Time"/>
+                        <field defaultValue="false" name="pr.useStrictTransferEncoding" displayName="Strict Transfer Encoding"/>
+                        <field defaultValue="false" name="pr.useChunking" displayName="Use Chunking"/>
+                        <field defaultValue="true" name="pr.followServerRedirects" displayName="Follow Server Redirects"/>
+                        <field defaultValue="5" name="pr.serverRedirectMax" displayName="Server Redirect Maximum Tries"/>
+                    </fields>
+                </group>
+            </groups>
+            <start/>
+            <stop/>
+        </connection>
+    </connections>
+    <services>
+        <service xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RESTServiceType" endpoint="${cn.providerUrl}" name="SMS" displayName="SMS">
+            <description>Send one or more SMS messages and obtain information for one or more messages</description>
+            <documentModel packageName="esendex" nsName="wmesendex.doc" useInlineModel="false"/>
+            <resources>
+                <resource method="POST" path="/messagedispatcher" name="SendSMS" displayName="SendSMS">
+                    <description>The Message Dispatcher resource can be used to send one or more SMS messages. These can be sent either straight away or scheduled for the future. The XML request object will contain the details of the message(s) to be sent and will generate a message batch response containing a URI to allow future queries to discover the status of the message(s).</description>
+                    <request name="Request" messageFormatterType="application/json" builderType="application/octet+idataoref" documentRef="wmesendex.doc:SendSMSRequest" excludeRoot="true"/>
+                    <responses>
+                        <response name="Response" code="200-504" messageFormatterType="application/octet+idataoref" builderType="application/json" documentRef="wmesendex.doc:SendSMSResponse" excludeRoot="true"/>
+                    </responses>
+                </resource>
+                <resource method="POST" path="/messages/information" name="MessageInformation" displayName="MessageInformation">
+                    <description>The Message Information resource can be used to obtain information for one or more messages to help understand the costs involved in sending those messages.</description>
+                    <request name="Request" messageFormatterType="application/json" builderType="application/octet+idataoref" documentRef="wmesendex.doc:MessageInformationRequest" excludeRoot="true"/>
+                    <responses>
+                        <response name="Response" code="200-504" messageFormatterType="application/octet+idataoref" builderType="application/json" documentRef="wmesendex.doc:MessageInformationResponse" excludeRoot="true"/>
+                    </responses>
+                </resource>
+            </resources>
+        </service>
+        <service xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RESTServiceType" endpoint="${cn.providerUrl}" name="Accounts" displayName="Accounts">
+            <description>The Accounts resource can be used to retrieve or update details on the Esendex account or accounts that the user has access to.</description>
+            <documentModel packageName="esendex" nsName="wmesendex.doc" useInlineModel="false"/>
+            <resources>
+                <resource method="GET" path="/accounts" name="Accounts" displayName="Accounts">
+                    <description>This operation will return a response containing summary information on all of the Esendex accounts that the user has permissions to use.</description>
+                    <responses>
+                        <response name="Response" code="200-504" messageFormatterType="application/octet+idataoref" builderType="application/json" documentRef="wmesendex.doc:AccountResponse" excludeRoot="true"/>
+                    </responses>
+                </resource>
+            </resources>
+        </service>
+        <service xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RESTServiceType" endpoint="${cn.providerUrl}" name="MessageBatch" displayName="MessageBatch">
+            <description>The Message Batch resource can be used to query the batches of messages which have been sent from an Esendex account. A common use of the message batch resource is to retrieve a summary of the status codes for the messages in a batch which indicates the delivery progress. Any message batches scheduled to be sent in the future can also be cancelled.</description>
+            <documentModel packageName="esendex" nsName="wmesendex.doc" useInlineModel="false"/>
+            <resources>
+                <resource method="GET" path="/messagebatches/{batchId}" name="GetSingleMessageBatch" displayName="GetSingleMessageBatch">
+                    <description>This operation will return a single message batch response identified by its ID.</description>
+                    <parameters>
+                        <parameter name="batchId" isRequired="true" style="URI_CONTEXT"/>
+                    </parameters>
+                    <responses>
+                        <response name="Response" code="200-504" messageFormatterType="application/octet+idataoref" builderType="application/xml" documentRef="wmesendex.doc:MessageBatch" excludeRoot="true"/>
+                    </responses>
+                </resource>
+                <resource method="GET" path="/messagebatches" name="GetMessageBatches" displayName="GetMessageBatches">
+                    <description>This operation will return a paged response of all messages batches for all accounts that the user has permission to view.</description>
+                    <parameters>
+                        <parameter name="filterBy" isRequired="false" style="QUERYSTRING_PARAM" defaultValue="account"/>
+                        <parameter name="filterValue" isRequired="false" style="QUERYSTRING_PARAM"/>
+                    </parameters>
+                    <responses>
+                        <response name="Response" code="200-504" messageFormatterType="application/octet+idataoref" builderType="application/xml" documentRef="wmesendex.doc:MessageBatches" excludeRoot="true"/>
+                    </responses>
+                </resource>
+                <resource method="DELETE" path="/messagebatches/{batchId}/schedule" name="CancelBatch" displayName="CancelBatch">
+                    <description>This operation will cancel a message batch that has been scheduled to be sent in the future. This operation cannot be undone!</description>
+                    <parameters>
+                        <parameter name="batchId" isRequired="true" style="URI_CONTEXT"/>
+                    </parameters>
+                    <responses>
+                        <response name="Success" code="204" messageFormatterType="vnd.sag.cloudstreams+binary" documentRef="wmesendex.doc:MessageBatches" excludeRoot="false"/>
+                        <response name="Error" code="401,403,404,410" messageFormatterType="vnd.sag.cloudstreams+binary" documentRef="wmesendex.doc:MessageBatches" excludeRoot="false"/>
+                    </responses>
+                </resource>
+            </resources>
+        </service>
+        <service xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RESTServiceType" endpoint="${cn.providerUrl}" name="MessageHeader" displayName="MessageHeader">
+            <description>The Message Header resource can be used to query messages which have been sent from an Esendex account. It also allows individual messages to be queried for more details.</description>
+            <documentModel packageName="esendex" nsName="wmesendex.doc" useInlineModel="false"/>
+            <resources>
+                <resource method="GET" path="/messageheaders/{messageId}" name="GetSingleMessageHeader" displayName="GetSingleMessageHeader">
+                    <description>This request will return a message header response for a single message. This request will support queries for both inbound and outbound messages.</description>
+                    <parameters>
+                        <parameter name="messageId" isRequired="true" style="URI_CONTEXT"/>
+                    </parameters>
+                    <responses>
+                        <response name="Response" code="200-504" messageFormatterType="application/octet+idataoref" builderType="application/xml" documentRef="wmesendex.doc:MessageHeader" excludeRoot="true"/>
+                    </responses>
+                </resource>
+                <resource method="GET" path="/messageheaders" name="GetMessageHeaders" displayName="GetMessageHeaders">
+                    <description>This request will return a paged response of all the sent messages from accounts that the user has permission to view.</description>
+                    <parameters>
+                        <parameter name="to" isRequired="false" style="QUERYSTRING_PARAM"/>
+                        <parameter name="start" isRequired="false" style="QUERYSTRING_PARAM"/>
+                        <parameter name="finish" isRequired="false" style="QUERYSTRING_PARAM"/>
+                        <parameter name="from" isRequired="false" style="QUERYSTRING_PARAM"/>
+                        <parameter name="status" isRequired="false" style="QUERYSTRING_PARAM"/>
+                    </parameters>
+                    <responses>
+                        <response name="Response" code="200-504" messageFormatterType="application/octet+idataoref" builderType="application/xml" documentRef="wmesendex.doc:MessageHeaders" excludeRoot="true"/>
+                    </responses>
+                </resource>
+                <resource method="GET" path="/messagebatches/{batchId}/messages" name="GetMessageHeadersForMessageBatch" displayName="GetMessageHeadersForMessageBatch">
+                    <description>This request will return a paged response of all messages for one message batch.</description>
+                    <parameters>
+                        <parameter name="batchId" isRequired="true" style="URI_CONTEXT"/>
+                    </parameters>
+                    <responses>
+                        <response name="Response" code="200-504" messageFormatterType="application/octet+idataoref" builderType="application/xml" documentRef="wmesendex.doc:MessageHeaders" excludeRoot="true"/>
+                    </responses>
+                </resource>
+            </resources>
+        </service>
+        <service xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RESTServiceType" endpoint="${cn.providerUrl}" name="Voicemessage" displayName="Voicemessage">
+            <description>Esendex's REST API supports the ability to send voice messages. This option is specified in the request body when using the Message Dispatcher endpoint.</description>
+            <documentModel packageName="esendex" nsName="wmesendex.doc" useInlineModel="false"/>
+            <resources>
+                <resource method="POST" path="/messagedispatcher" name="SendVoicemessage" displayName="SendVoicemessage">
+                    <description>The Message Dispatcher endpoint can be used to send a Voice message by setting the Type of the message to Voice.</description>
+                    <mappings>
+                        <map isRequired="true" isFixed="true" context="IN" name="Contenttype" displayName="Contenttype">
+                            <source type="LITERAL">application/xml</source>
+                            <target type="HEADER">Content-Type</target>
+                        </map>
+                    </mappings>
+                    <request name="Request" messageFormatterType="application/xml" builderType="application/octet+idataoref" documentRef="wmesendex.doc:SendVoicemessageRequest" excludeRoot="true"/>
+                    <responses>
+                        <response name="Success" code="200" messageFormatterType="application/octet+idataoref" builderType="application/xml" documentRef="wmesendex.doc:SendVoicemessageResponse" excludeRoot="true"/>
+                        <response name="Error" code="400,401,402,403,404,406,415" messageFormatterType="vnd.sag.cloudstreams+binary" documentRef="wmesendex.doc:SendVoicemessageResponse" excludeRoot="false"/>
+                    </responses>
+                </resource>
+            </resources>
+        </service>
+    </services>
+</rest-connector>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:Connector xmlns:ns2="http://cloudstreams.com/connector" name="com.softwareag.esendex" displayName="com.softwareag.esendex" version="0.1" group="esendex">
+    <description></description>
+    <descriptorfile>com.softwareag.esendex.xml</descriptorfile>
+    <createdByPlugin>9.12</createdByPlugin>
+    <createdByPluginChecksum>5f278033ef8c4ece9dfd824d2138c055d0e36</createdByPluginChecksum>
+    <createdOnIS>9.12</createdOnIS>
+    <createdOnISChecksum>41b39c4c70f57b2d7ad426cc4121e4cce25e21</createdOnISChecksum>
+    <key>com.softwareag.esendex</key>
+    <bundlevendor>Software AG</bundlevendor>
+    <handler>com.softwareag.cloudstreams.metadata.handler.rest.RestConnectorMetadataHandler</handler>
+    <deployment>
+        <providerpackage>esendex</providerpackage>
+    </deployment>
+    <deploymentStatus>UnDeployed</deploymentStatus>
+</ns2:Connector>
